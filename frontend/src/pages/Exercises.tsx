@@ -25,7 +25,7 @@ export default function Exercises() {
     setUserAnswer('')
     setLoading(true)
     try {
-      fetch(`${API_URL}/api/exercise`, {
+      const res = await fetch(`${API_URL}/api/exercise`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ type, userId: USER_ID }),
@@ -44,7 +44,7 @@ export default function Exercises() {
     if (!category || !userAnswer.trim()) return
     setLoading(true)
     try {
-      fetch(`${API_URL}/api/answer`, {
+      const res = await fetch(`${API_URL}/api/answer`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
